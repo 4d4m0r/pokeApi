@@ -6,7 +6,7 @@ export const environment = {
   production: false
 };
 
-export const api = "https://pokeapi.co/api/v2/"
+export const api = "https://pokeapi.co/api/v2/pokemon"
 
 /*
  * For easier debugging in development mode, you can import the following file
