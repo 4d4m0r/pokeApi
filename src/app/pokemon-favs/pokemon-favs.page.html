@@ -1,17 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> Home </ion-title>
+    <ion-title> Favoritos </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col><h1>Pokemons</h1></ion-col>
-      <ion-col></ion-col>
-      <ion-col><ion-button  [routerLink] = "['/pokemon-favs']">Favoritos</ion-button></ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-row>
+    <h1>Pokemons Favoritados</h1>
+  </ion-row>
   <ion-list>
     <ion-item *ngFor="let pokemon of pokemons" button [routerLink]="['/pokemon-details', pokemon.name]">
       <ion-thumbnail slot="start">

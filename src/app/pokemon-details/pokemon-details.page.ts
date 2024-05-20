@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { FavoritesService } from '../services/favorites.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -10,7 +11,7 @@ import { ApiService } from '../services/api.service';
 export class PokemonDetailsPage implements OnInit {
   public pokemon: any;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private favoritesService: FavoritesService) {}
 
   ngOnInit() {
     const name = this.route.snapshot.paramMap.get('name');
@@ -21,6 +22,12 @@ export class PokemonDetailsPage implements OnInit {
       },(e) => console.error('Failed to get pokemon details',e.error));
     }else{
       console.error('Pokémon name not exist!')
+    }
+  }
+
+  addToFavorites() {
+    if (this.pokemon) {
+      this.favoritesService.addFavorite(this.pokemon);
     }
   }
 }
