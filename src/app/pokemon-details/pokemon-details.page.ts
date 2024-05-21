@@ -13,6 +13,9 @@ export class PokemonDetailsPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private favoritesService: FavoritesService) {}
 
+  /**
+   * Busca os detalhes do Pokémon baseado no parâmetro da rota.
+   */
   ngOnInit() {
     const name = this.route.snapshot.paramMap.get('name');
     if (name) {
@@ -24,6 +27,9 @@ export class PokemonDetailsPage implements OnInit {
     }
   }
 
+  /**
+   * Adiciona o Pokémon atual aos favoritos.
+   */
   addToFavorites() {
     if (this.pokemon) {
       this.favoritesService.addFavorite(this.pokemon);
