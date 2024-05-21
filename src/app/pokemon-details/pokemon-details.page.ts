@@ -10,6 +10,7 @@ import { FavoritesService } from '../services/favorites.service';
 })
 export class PokemonDetailsPage implements OnInit {
   public pokemon: any;
+  public isFavorite: boolean = false;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private favoritesService: FavoritesService) {}
 
@@ -21,6 +22,7 @@ export class PokemonDetailsPage implements OnInit {
     if (name) {
       this.apiService.getPokemonDetails(name).subscribe((details) => {
         this.pokemon = details;
+        this.isFavorite = this.favoritesService.isFavorite(this.pokemon);
       },(e) => console.error('Failed to get pokemon details',e.error));
     }else{
       console.error('Pokémon name not exist!')

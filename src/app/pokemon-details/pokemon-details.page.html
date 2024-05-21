@@ -4,36 +4,37 @@
       <ion-buttons slot="start">
         <app-back-button></app-back-button>
       </ion-buttons>
-      <ion-title>{{ pokemon.name }}</ion-title>
-      <ion-buttons slot="end">
+      <ion-title></ion-title>
+      <ion-buttons slot="end" *ngIf="!isFavorite">
         <ion-button (click)="addToFavorites()">
           <ion-icon name="heart"></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  
 
   <ion-card>
-    <img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}" />
     <ion-card-header>
-      <ion-card-title>{{pokemon.name | uppercase}}</ion-card-title>
+      <ion-card-title>{{ pokemon.name | uppercase }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Height: {{pokemon.height}}</p>
-      <p>Weight: {{pokemon.weight}}</p>
-      <p>Base Experience: {{pokemon.base_experience}}</p>
-      <p><strong>Abilities:</strong></p>
-      <ul>
-        <li *ngFor="let ability of pokemon.abilities">
-          {{ ability.ability.name }}
-        </li>
-      </ul>
-      <p>Order: {{pokemon.order}}</p>
-      <p>Types:</p>
-      <ul>
-        <li *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
-      </ul>
+      <div style="text-align: center;">
+        <img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}"/>
+      </div>
+        <p><strong>Height:</strong> {{pokemon.height}} m</p>
+        <p><strong>Weight:</strong> {{pokemon.weight}} kg</p>
+        <p><strong>Base Experience:</strong> {{pokemon.base_experience}}</p>
+        <p><strong>Abilities:</strong></p>
+        <ul>
+          <li *ngFor="let ability of pokemon.abilities">
+            {{ ability.ability.name }}
+          </li>
+        </ul>
+        <p><strong>Order:</strong> {{pokemon.order}}</p>
+        <p><strong>Types:</strong></p>
+        <ul>
+          <li *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
+        </ul>
     </ion-card-content>
   </ion-card>
 </ion-content>
