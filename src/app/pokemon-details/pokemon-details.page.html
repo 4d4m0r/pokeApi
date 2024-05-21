@@ -1,15 +1,18 @@
 <ion-content *ngIf="pokemon">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Pokémon {{pokemon.name}}</ion-title>
+      <ion-buttons slot="start">
+        <app-back-button></app-back-button>
+      </ion-buttons>
+      <ion-title>{{ pokemon.name }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="addToFavorites()">
+          <ion-icon name="heart"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
-    <ion-buttons>
-      <ion-button (click)="addToFavorites()">
-        <ion-icon name="heart-outline"></ion-icon>
-        Add to Favorites
-      </ion-button>
-    </ion-buttons>
   </ion-header>
+  
 
   <ion-card>
     <img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}" />

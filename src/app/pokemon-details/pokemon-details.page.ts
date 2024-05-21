@@ -18,7 +18,6 @@ export class PokemonDetailsPage implements OnInit {
     if (name) {
       this.apiService.getPokemonDetails(name).subscribe((details) => {
         this.pokemon = details;
-        console.log(this.pokemon)
       },(e) => console.error('Failed to get pokemon details',e.error));
     }else{
       console.error('Pokémon name not exist!')

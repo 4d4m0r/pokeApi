@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PokemonDetailsPageRoutingModule } from './pokemon-details-routing.module';
 
 import { PokemonDetailsPage } from './pokemon-details.page';
+import { SharedModule } from '../components/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PokemonDetailsPageRoutingModule
+    PokemonDetailsPageRoutingModule,
+    SharedModule
   ],
   declarations: [PokemonDetailsPage]
 })
